@@ -382,9 +382,9 @@
         <span lang="en">GarageManager is free, with no ads and no subscriptions. If it saves your garage time, a small donation helps keep it going: new features, fixes and updates.</span>
         <span lang="lv">GarageManager ir bez maksas, bez reklāmām un abonementiem. Ja tā ietaupa jūsu servisam laiku, neliels ziedojums palīdz to attīstīt: jaunas iespējas, labojumi un atjauninājumi.</span>
       </p>
-      <!-- DONATE_URL: put the Ko-fi (or other) page here and remove the
-           "soon" line below. The app's Donate button opens this section. -->
-      <a class="btn primary big" id="donate-link" href="" hidden>
+      <!-- The link comes from DONATE_URL in the script at the end. The
+           app's Donate button opens this section. -->
+      <a class="btn primary big" id="donate-link" href="" target="_blank" rel="noopener" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
         <span lang="en">Donate</span><span lang="lv">Ziedot</span>
       </a>
@@ -446,8 +446,8 @@
   buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang) }) })
   setLang(document.documentElement.lang)
 
-  // Donate link: set DONATE_URL once the donation page exists.
-  var DONATE_URL = ''
+  // Donate link; the "coming soon" line shows only while it is empty.
+  var DONATE_URL = 'https://ko-fi.com/teddybear1998'
   if (DONATE_URL) {
     var link = document.getElementById('donate-link')
     link.href = DONATE_URL
