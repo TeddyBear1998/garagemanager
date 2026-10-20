@@ -1,4 +1,6 @@
-# GarageManager
+# GearBear
+
+By ImpatientBeastStudios. Formerly called GarageManager; this repository keeps the old name so existing links keep working.
 
 Free Windows app for car garages: appointments, vehicles, customers, job cards and service history. Works offline; the data stays on your PC.
 
