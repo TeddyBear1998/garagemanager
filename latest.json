@@ -1,9 +1,17 @@
 {
-  "version": "0.10.0",
+  "version": "0.11.0",
   "date": "2026-10-21",
   "url": "https://teddybear1998.github.io/garagemanager/#download",
   "notes": {
-    "en": "Simpler booking: new cars are added right in the appointment, one-click check-in, quicker walk-ins.",
-    "lv": "Vienkāršāka pierakstīšana: jaunas automašīnas pievieno uzreiz pierakstā, pieņemšana ar vienu klikšķi, ātrāki klienti bez pieraksta."
+    "en": "Updates now install from inside GearBear: click Update now, it restarts by itself.",
+    "lv": "Jauninājumus tagad uzstāda pati GearBear: nospiediet “Atjaunināt tagad”, tā pārstartēsies pati."
+  },
+  "setup": {
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.11.0/GearBear-Setup.exe",
+    "sha256": "a2a6b9562fae2d42c7999260129f85d604acc7289232db5e5b2a5cf9c5089c6a"
+  },
+  "exe": {
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.11.0/GearBear.exe",
+    "sha256": "a3a6f8097cf41fe63725b5a46e1524d6c58892a0deaf35cdbe429e820c410b0c"
   }
 }
