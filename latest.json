@@ -1,9 +1,9 @@
 {
-  "version": "0.9.0",
+  "version": "0.10.0",
   "date": "2026-10-21",
   "url": "https://teddybear1998.github.io/garagemanager/#download",
   "notes": {
-    "en": "GarageManager is now called GearBear, by ImpatientBeastStudios. Installing it replaces the old app and keeps all your data.",
-    "lv": "GarageManager tagad saucas GearBear (ImpatientBeastStudios). Uzstādot tā aizstāj veco programmu un saglabā visus datus."
+    "en": "Simpler booking: new cars are added right in the appointment, one-click check-in, quicker walk-ins.",
+    "lv": "Vienkāršāka pierakstīšana: jaunas automašīnas pievieno uzreiz pierakstā, pieņemšana ar vienu klikšķi, ātrāki klienti bez pieraksta."
   }
 }
