@@ -1,17 +1,17 @@
 {
-  "version": "0.12.1",
+  "version": "0.12.2",
   "date": "2026-10-22",
   "url": "https://teddybear1998.github.io/garagemanager/#download",
   "notes": {
-    "en": "New GearBear logo and icon.",
-    "lv": "Jauns GearBear logo un ikona."
+    "en": "The new icon now shows on the desktop and taskbar after updating.",
+    "lv": "Jaunā ikona tagad redzama arī uz darbvirsmas un uzdevumjoslā pēc atjaunināšanas."
   },
   "setup": {
-    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.1/GearBear-Setup.exe",
-    "sha256": "5614d0f5663597dbbdc3b05dfecc10f3c6edaf7da26289f8cab99b12e99741dc"
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.2/GearBear-Setup.exe",
+    "sha256": "c2ab77c64b8c18f15b7217ed70515a43a975a3d1241af458c2b334251a7824c4"
   },
   "exe": {
-    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.1/GearBear.exe",
-    "sha256": "21d453337d37fa21a46cbdb9246acd996d315b0f31814739993847df33b92971"
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.2/GearBear.exe",
+    "sha256": "c1966efc3fee1cc9b241b750f25235043170a48fb9674356ff8634ef2600ea50"
   }
 }
