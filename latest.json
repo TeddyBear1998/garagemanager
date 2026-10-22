@@ -1,17 +1,17 @@
 {
-  "version": "0.11.0",
-  "date": "2026-10-21",
+  "version": "0.12.0",
+  "date": "2026-10-22",
   "url": "https://teddybear1998.github.io/garagemanager/#download",
   "notes": {
-    "en": "Updates now install from inside GearBear: click Update now, it restarts by itself.",
-    "lv": "Jauninājumus tagad uzstāda pati GearBear: nospiediet “Atjaunināt tagad”, tā pārstartēsies pati."
+    "en": "VAT can be turned off for garages that are not VAT payers; VAT lines are hidden when no VAT applies.",
+    "lv": "PVN var izslēgt uzņēmumiem, kas nav PVN maksātāji; PVN rindas netiek rādītas, ja PVN netiek piemērots."
   },
   "setup": {
-    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.11.0/GearBear-Setup.exe",
-    "sha256": "a2a6b9562fae2d42c7999260129f85d604acc7289232db5e5b2a5cf9c5089c6a"
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.0/GearBear-Setup.exe",
+    "sha256": "6a6811bdd61f97e69592fd5bf9b1bef98ce0ad2eeb9dd9b15e4dd6a304d06a97"
   },
   "exe": {
-    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.11.0/GearBear.exe",
-    "sha256": "a3a6f8097cf41fe63725b5a46e1524d6c58892a0deaf35cdbe429e820c410b0c"
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.0/GearBear.exe",
+    "sha256": "706fb81e8234f22864c5a759b3f40d3fdb1751376b9415dad03db3640f51a5d0"
   }
 }
