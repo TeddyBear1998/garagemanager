@@ -1,0 +1,7 @@
+// Cloudflare Worker that serves the GearBear website at gearbear.impatientbeaststudios.com.
+// The site files sit in the repo root; .assetsignore keeps the rest out.
+{
+  "name": "gearbear",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "." }
+}

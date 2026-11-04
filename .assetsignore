@@ -1,0 +1,9 @@
+# Not part of the website served by Cloudflare.
+.git
+.nojekyll
+README.md
+wrangler.jsonc
+# Redirect pages for the old github.io address (GitHub Pages only).
+docs
+.wrangler
+.gitignore
