@@ -13,3 +13,6 @@ This repository holds the website and the released installers (see [Releases](ht
 - `docs/`: the old address, https://teddybear1998.github.io/garagemanager/ (GitHub Pages, folder `/docs`).
   A "we've moved" page plus a copy of `latest.json`, which must stay: copies of GearBear up to
   0.12.x read their update feed from there. The release script writes both copies.
+- Look: header, footer and colours follow the studio guide
+  (`~/Documents/impatientbeaststudios/BRAND.md`): warm page, warm dark bar, `Gear`/`Bear`
+  wordmark, the logo's wrench red as the accent (04.11.2026).
