@@ -1,17 +1,17 @@
 {
-  "version": "0.12.2",
-  "date": "2026-10-22",
-  "url": "https://teddybear1998.github.io/garagemanager/#download",
+  "version": "0.13.0",
+  "date": "2026-11-04",
+  "url": "https://gearbear.impatientbeaststudios.com/#download",
   "notes": {
-    "en": "The new icon now shows on the desktop and taskbar after updating.",
-    "lv": "Jaunā ikona tagad redzama arī uz darbvirsmas un uzdevumjoslā pēc atjaunināšanas."
+    "en": "GearBear has a new web address: gearbear.impatientbeaststudios.com. Updates now come from there.",
+    "lv": "GearBear ir jauna tīmekļa adrese: gearbear.impatientbeaststudios.com. Atjauninājumi tagad nāk no turienes."
   },
   "setup": {
-    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.2/GearBear-Setup.exe",
-    "sha256": "c2ab77c64b8c18f15b7217ed70515a43a975a3d1241af458c2b334251a7824c4"
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.13.0/GearBear-Setup.exe",
+    "sha256": "93fd3e3b4bafcd1227648c4c750d00f5320093be2b3602e719437d2bf459f42e"
   },
   "exe": {
-    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.12.2/GearBear.exe",
-    "sha256": "c1966efc3fee1cc9b241b750f25235043170a48fb9674356ff8634ef2600ea50"
+    "url": "https://github.com/TeddyBear1998/garagemanager/releases/download/v0.13.0/GearBear.exe",
+    "sha256": "4cca3716dcc02244c9d280d739dc3739636cebcb0b0c8748e6410b0b3639a38f"
   }
 }
