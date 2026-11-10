@@ -13,12 +13,17 @@ descriptions in data-lv attributes. This writes:
     OUT/sitemap.xml     both versions linked to each other, plus SITEMAP_EXTRA
 
 Google sees one language per address, and hreflang links tell it which pages are
-translations of each other. No packages needed; run it before committing.
+translations of each other. A page with <meta property="article:published_time"> also gets
+the article's author and dates as JSON-LD (what Google reads); a page with
+<meta name="robots" content="noindex"> (a 404 page) gets no canonical or hreflang links and
+stays out of the sitemap. No packages needed; run it before committing.
 
 The same script is used by every IBS site; only the settings below differ.
 """
 import base64
 import hashlib
+import html as htmllib
+import json
 import posixpath
 import re
 import sys
@@ -106,11 +111,45 @@ def script_hash():
     return "'sha256-" + base64.b64encode(hashlib.sha256(body.encode()).digest()).decode() + "'"
 
 
+def meta_content(html, attr, name):
+    m = re.search(rf'<meta {attr}="{re.escape(name)}" content="([^"]*)"', html)
+    return htmllib.unescape(m.group(1)) if m else None
+
+
+def article_data(html, url, lang):
+    """JSON-LD for an article page (one with article:published_time), or '' for any other page."""
+    published = meta_content(html, 'property', 'article:published_time')
+    if not published:
+        return ''
+    title = htmllib.unescape(re.search(r'<title>(.*?)</title>', html, re.S).group(1))
+    site = meta_content(html, 'property', 'og:site_name') or 'ImpatientBeastStudios'
+    author = meta_content(html, 'property', 'article:author')
+    data = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': title.rsplit(' · ', 1)[0],
+        'description': meta_content(html, 'name', 'description'),
+        'datePublished': published,
+        'dateModified': meta_content(html, 'property', 'article:modified_time') or published,
+        'inLanguage': lang,
+        'url': url,
+        'mainEntityOfPage': url,
+        'image': meta_content(html, 'property', 'og:image'),
+        'author': {'@type': 'Person', 'name': author, 'url': 'https://impatientbeaststudios.com' + localise('/about', lang)}
+                  if author else {'@type': 'Organization', 'name': site},
+        'publisher': {'@type': 'Organization', 'name': 'ImpatientBeastStudios', 'url': 'https://impatientbeaststudios.com/'},
+    }
+    data = {k: v for k, v in data.items() if v}
+    body = json.dumps(data, ensure_ascii=False, indent=2).replace('</', '<\\/')
+    return f'<script type="application/ld+json">\n{body}\n</script>\n'
+
+
 def build_page(src_file, src_root, out_root, pages):
     rel = src_file.relative_to(src_root)
     name = rel.as_posix()
     source = src_file.read_text(encoding='utf-8')
     en_path = route(rel)
+    noindex = re.search(r'<meta name="robots" content="[^"]*noindex', source) is not None
     page_dir = en_path if en_path.endswith('/') else posixpath.dirname(en_path)
 
     for lang in LANGS:
@@ -167,12 +206,14 @@ def build_page(src_file, src_root, out_root, pages):
 
         # Own address, translations, locale.
         url = SITE + here
+        if noindex:
+            html = re.sub(r'<link rel="canonical" href="[^"]*" ?/?>\n?', '', html)   # a 404 page has no address of its own
         html, n = re.subn(r'<link rel="canonical" href="[^"]*"( ?/?)>', lambda m:
                           f'<link rel="canonical" href="{url}"{m.group(1)}>\n'
                           f'<link rel="alternate" hreflang="en" href="{SITE + en_path}"{m.group(1)}>\n'
                           f'<link rel="alternate" hreflang="lv" href="{SITE + localise(en_path, "lv")}"{m.group(1)}>\n'
                           f'<link rel="alternate" hreflang="x-default" href="{SITE + en_path}"{m.group(1)}>', html, count=1)
-        if not n:
+        if not n and not noindex:
             fail(f'{name}: no <link rel="canonical">')
         html = re.sub(r'<meta property="og:url" content="[^"]*"( ?/?)>', lambda m:
                           f'<meta property="og:url" content="{url}"{m.group(1)}>\n'
@@ -183,7 +224,7 @@ def build_page(src_file, src_root, out_root, pages):
         head, n = HEAD_SCRIPT.subn(lambda _: redirect_script(), html[:head_end], count=1)
         if not n:
             fail(f'{name}: language script not found in <head>')
-        html = head + html[head_end:]
+        html = head + article_data(html, url, lang) + html[head_end:]
 
         # EN / LV switch: links to the two versions.
         def switch(m):
@@ -205,7 +246,7 @@ def build_page(src_file, src_root, out_root, pages):
         out = out_root / ('lv' if lang == 'lv' else '') / rel
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(html, encoding='utf-8')
-    return en_path
+    return None if noindex else en_path
 
 
 def main():
@@ -214,7 +255,8 @@ def main():
     if not sources:
         fail(f'no pages in {SRC}/')
     pages = {route(f.relative_to(src_root)) for f in sources}
-    built = [build_page(f, src_root, out_root, pages) for f in sources]
+    results = [build_page(f, src_root, out_root, pages) for f in sources]
+    built = [p for p in results if p]                     # noindex pages stay out of the sitemap
 
     rows = [f'  <url><loc>{SITE + p}</loc></url>' for p in SITEMAP_EXTRA]
     for p in sorted(built, key=lambda p: (p != '/', p)):
@@ -224,7 +266,7 @@ def main():
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
         + '\n'.join(rows) + '\n</urlset>\n', encoding='utf-8')
-    print(f'built {len(built)} pages × {len(LANGS)} languages + sitemap.xml')
+    print(f'built {len(results)} pages × {len(LANGS)} languages + sitemap.xml')
 
     # A Content-Security-Policy without 'unsafe-inline' must list this script's hash.
     headers = ROOT / HEADERS if HEADERS else out_root / '_headers'
