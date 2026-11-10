@@ -6,12 +6,18 @@
 <title>GearBear</title>
 <meta name="author" content="ImpatientBeastStudios">
 <meta name="description" content="GearBear: free Windows app for car garages: appointments, vehicles, customers, job cards and service history. Works offline; your data stays on your PC.">
-<link rel="icon" type="image/png" href="img/favicon-32.png">
-<link rel="apple-touch-icon" href="img/icon-192.png">
+<link rel="canonical" href="https://gearbear.impatientbeaststudios.com/">
+<link rel="alternate" hreflang="en" href="https://gearbear.impatientbeaststudios.com/">
+<link rel="alternate" hreflang="lv" href="https://gearbear.impatientbeaststudios.com/lv/">
+<link rel="alternate" hreflang="x-default" href="https://gearbear.impatientbeaststudios.com/">
+<link rel="icon" type="image/png" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" href="/img/icon-192.png">
 <meta property="og:title" content="GearBear">
 <meta property="og:description" content="Free Windows app for car garages: appointments, job cards and service history.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gearbear.impatientbeaststudios.com/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="lv_LV">
 <meta property="og:site_name" content="GearBear">
 <meta property="og:image" content="https://gearbear.impatientbeaststudios.com/img/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -20,35 +26,36 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://gearbear.impatientbeaststudios.com/img/og-image.png">
 <script>
-  // Pick the language before anything is drawn: ?lang=, then the last
-  // choice, then the browser's language.
+  // Language: ?lang= from a link, then the saved choice, then (first visit) the browser.
   (function () {
-    var q = new URLSearchParams(location.search).get('lang'), saved = null
-    try { saved = localStorage.getItem('lang') } catch (e) {}
-    var lang = q || saved || ((navigator.language || '').toLowerCase().indexOf('lv') === 0 ? 'lv' : 'en')
-    document.documentElement.lang = lang === 'lv' ? 'lv' : 'en'
+    var here = document.documentElement.lang, p = location.pathname, saved = null
+    var q = new URLSearchParams(location.search).get('lang')
+    if (q !== 'en' && q !== 'lv') q = null
+    try { if (q) localStorage.setItem('lang', q); saved = localStorage.getItem('lang') } catch (e) {}
+    var want = q || saved || (here === 'en' && (navigator.language || '').toLowerCase().indexOf('lv') === 0 ? 'lv' : null)
+    if (want && want !== here) location.replace((want === 'lv' ? '/lv' + p : p.replace(/^\/lv(\/|$)/, '/')) + location.hash)
   })()
 </script>
 <meta name="theme-color" content="#241e1a">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <header class="top">
   <div class="studio-bar"><div class="wrap"><a href="https://impatientbeaststudios.com"><span aria-hidden="true">&larr;</span> ImpatientBeastStudios</a></div></div>
   <div class="wrap top-row">
-    <a class="brand" href="#top" aria-label="GearBear"><img src="img/icon-192.png" alt="" width="36" height="36"><span class="wordmark"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
+    <a class="brand" href="#top" aria-label="GearBear"><img src="/img/icon-192.png" alt="" width="36" height="36"><span class="wordmark"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
     <nav class="links">
-      <a href="#features"><span lang="en">Features</span><span lang="lv">Iespējas</span></a>
-      <a href="#screens"><span lang="en">Screenshots</span><span lang="lv">Ekrāni</span></a>
-      <a href="#download"><span lang="en">Download</span><span lang="lv">Lejupielāde</span></a>
-      <a href="#donate"><span lang="en">Donate</span><span lang="lv">Ziedot</span></a>
-      <a href="#faq"><span lang="en">FAQ</span><span lang="lv">Jautājumi</span></a>
+      <a href="#features">Features</a>
+      <a href="#screens">Screenshots</a>
+      <a href="#download">Download</a>
+      <a href="#donate">Donate</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <div class="lang" role="group" aria-label="Language / Valoda">
-      <button type="button" data-lang="en">EN</button>
-      <button type="button" data-lang="lv">LV</button>
-    </div>
+    <nav class="lang" aria-label="Language / Valoda">
+      <a href="/" hreflang="en" data-lang="en" aria-current="true">EN</a>
+      <a href="/lv/" hreflang="lv" data-lang="lv">LV</a>
+    </nav>
   </div>
 </header>
 
@@ -56,33 +63,33 @@
   <section class="hero">
     <div class="wrap">
       <h1>
-        <span lang="en">Appointments, cars and service history for your garage</span>
-        <span lang="lv">Pieraksti, automašīnas un servisa vēsture jūsu autoservisam</span>
+        Appointments, cars and service history for your garage
+        
       </h1>
       <p class="lead">
-        <span lang="en">A free Windows app for car garages. Book work in the calendar, fill in job cards, print them for the customer, and find any car's history in a second. It works offline and keeps your data on your own PC.</span>
-        <span lang="lv">Bezmaksas Windows programma autoservisiem. Pierakstiet darbus kalendārā, aizpildiet darba kartes, izdrukājiet tās klientam un atrodiet jebkuras automašīnas vēsturi sekundes laikā. Darbojas bez interneta, un dati paliek jūsu datorā.</span>
+        A free Windows app for car garages. Book work in the calendar, fill in job cards, print them for the customer, and find any car's history in a second. It works offline and keeps your data on your own PC.
+        
       </p>
       <div class="cta">
         <a class="btn primary big" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-          <span lang="en">Download for Windows</span><span lang="lv">Lejupielādēt Windows</span>
+          Download for Windows
         </a>
         <span class="alt">
-          <span class="version-line" hidden><span lang="en">Version</span><span lang="lv">Versija</span> <b class="version"></b> · </span>
-          <a href="#download"><span lang="en">Install help</span><span lang="lv">Kā uzstādīt</span></a>
+          <span class="version-line" hidden>Version <b class="version"></b> · </span>
+          <a href="#download">Install help</a>
         </span>
       </div>
       <div class="facts">
-        <span lang="en">Free</span><span lang="lv">Bez maksas</span>
-        <span lang="en">Windows 10 and 11</span><span lang="lv">Windows 10 un 11</span>
-        <span lang="en">Works offline</span><span lang="lv">Darbojas bez interneta</span>
-        <span lang="en">English and Latvian</span><span lang="lv">Latviešu un angļu valodā</span>
+        Free
+        Windows 10 and 11
+        Works offline
+        English and Latvian
       </div>
-      <p class="formerly"><span lang="en">Formerly called GarageManager. Already using it? Click Download in the app's “new version” bar and run the installer: it replaces GarageManager with GearBear and keeps all your data.</span><span lang="lv">Agrāk saucās GarageManager. Jau lietojat? Spiediet Lejupielādēt programmas joslā “jauna versija” un palaidiet instalētāju: tas aizstās GarageManager ar GearBear un saglabās visus datus.</span></p>
+      <p class="formerly">Formerly called GarageManager. Already using it? Click Download in the app's “new version” bar and run the installer: it replaces GarageManager with GearBear and keeps all your data.</p>
       <div class="shot">
-        <img lang="en" src="img/dashboard-en.webp" width="1440" height="900" alt="GearBear dashboard: today's appointments with their status and cars due for service">
-        <img lang="lv" src="img/dashboard-lv.webp" width="1440" height="900" alt="GearBear sākuma ekrāns: šodienas pieraksti ar statusiem un automašīnas, kurām drīz jāveic serviss">
+        <img src="/img/dashboard-en.webp" width="1440" height="900" alt="GearBear dashboard: today's appointments with their status and cars due for service">
+        
       </div>
     </div>
   </section>
@@ -90,49 +97,49 @@
   <section id="features">
     <div class="wrap">
       <div class="section-head">
-        <h2><span lang="en">Everything the front desk needs, nothing it doesn't</span><span lang="lv">Viss, kas vajadzīgs reģistratūrai, un nekā lieka</span></h2>
-        <p><span lang="en">Made together with a working garage, for receptionists and mechanics who use it all day.</span><span lang="lv">Veidota kopā ar strādājošu autoservisu, reģistratoriem un mehāniķiem, kas to lieto visu dienu.</span></p>
+        <h2>Everything the front desk needs, nothing it doesn't</h2>
+        <p>Made together with a working garage, for receptionists and mechanics who use it all day.</p>
       </div>
       <div class="grid">
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></div>
-          <h3><span lang="en">Calendar</span><span lang="lv">Kalendārs</span></h3>
-          <p><span lang="en">Day and week views per bay and mechanic. Drag a booking to move it. Clear colours show what's booked, in progress, waiting for parts or ready.</span><span lang="lv">Dienas un nedēļas skats pa remonta vietām un mehāniķiem. Pārvelciet pierakstu, lai to pārceltu. Skaidras krāsas rāda, kas ir pierakstīts, procesā, gaida detaļas vai ir gatavs.</span></p>
+          <h3>Calendar</h3>
+          <p>Day and week views per bay and mechanic. Drag a booking to move it. Clear colours show what's booked, in progress, waiting for parts or ready.</p>
         </div>
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <h3><span lang="en">Job cards</span><span lang="lv">Darba kartes</span></h3>
-          <p><span lang="en">Labour, parts and other costs with VAT worked out for you. Print a job card for the workshop and a summary for the customer.</span><span lang="lv">Darbs, detaļas un citas izmaksas ar automātiski aprēķinātu PVN. Izdrukājiet darba karti darbnīcai un kopsavilkumu klientam.</span></p>
+          <h3>Job cards</h3>
+          <p>Labour, parts and other costs with VAT worked out for you. Print a job card for the workshop and a summary for the customer.</p>
         </div>
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-          <h3><span lang="en">Instant search</span><span lang="lv">Tūlītēja meklēšana</span></h3>
-          <p><span lang="en">Type part of a plate, VIN, name or phone number and the car is there, even with 100 000 vehicles. <kbd>Ctrl</kbd>+<kbd>K</kbd> from anywhere.</span><span lang="lv">Ierakstiet daļu no numura, VIN, vārda vai tālruņa, un automašīna ir atrasta, pat ja to ir 100 000. <kbd>Ctrl</kbd>+<kbd>K</kbd> no jebkuras vietas.</span></p>
+          <h3>Instant search</h3>
+          <p>Type part of a plate, VIN, name or phone number and the car is there, even with 100 000 vehicles. <kbd>Ctrl</kbd>+<kbd>K</kbd> from anywhere.</p>
         </div>
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
-          <h3><span lang="en">History and reminders</span><span lang="lv">Vēsture un atgādinājumi</span></h3>
-          <p><span lang="en">Every job on every car, with mileage. See which cars are due for a service by date or kilometres, and mark who you've called.</span><span lang="lv">Katrs darbs katrai automašīnai, ar nobraukumu. Redziet, kurām automašīnām pienācis servisa laiks pēc datuma vai kilometriem, un atzīmējiet, kam jau zvanījāt.</span></p>
+          <h3>History and reminders</h3>
+          <p>Every job on every car, with mileage. See which cars are due for a service by date or kilometres, and mark who you've called.</p>
         </div>
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/></svg></div>
-          <h3><span lang="en">Parts storage</span><span lang="lv">Detaļu noliktava</span></h3>
-          <p><span lang="en">Keep track of the parts and fluids on your shelves. Take them straight onto a job card and the stock updates itself.</span><span lang="lv">Uzskaitiet detaļas un šķidrumus plauktos. Ņemiet tās uzreiz darba kartē, un atlikums mainās pats.</span></p>
+          <h3>Parts storage</h3>
+          <p>Keep track of the parts and fluids on your shelves. Take them straight onto a job card and the stock updates itself.</p>
         </div>
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
-          <h3><span lang="en">Statistics</span><span lang="lv">Statistika</span></h3>
-          <p><span lang="en">Jobs, turnover, labour and parts for any period. See which part makes last longest, in kilometres, on real cars.</span><span lang="lv">Darbi, apgrozījums, darbs un detaļas jebkuram periodam. Redziet, kuru ražotāju detaļas kalpo visilgāk, kilometros, uz īstām automašīnām.</span></p>
+          <h3>Statistics</h3>
+          <p>Jobs, turnover, labour and parts for any period. See which part makes last longest, in kilometres, on real cars.</p>
         </div>
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-          <h3><span lang="en">Daily backups</span><span lang="lv">Ikdienas rezerves kopijas</span></h3>
-          <p><span lang="en">Backs itself up every day, to another drive if you like. A power cut can't damage the data. Restoring takes two clicks.</span><span lang="lv">Katru dienu pati izveido rezerves kopiju, ja vēlaties, uz citu disku. Elektrības pārtraukums datus nesabojā. Atjaunošana prasa divus klikšķus.</span></p>
+          <h3>Daily backups</h3>
+          <p>Backs itself up every day, to another drive if you like. A power cut can't damage the data. Restoring takes two clicks.</p>
         </div>
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3><span lang="en">Private and offline</span><span lang="lv">Privāti un bez interneta</span></h3>
-          <p><span lang="en">No account, no cloud, no monthly fee. Your customers' data never leaves your computer. It runs well on old laptops too.</span><span lang="lv">Bez konta, bez mākoņa, bez ikmēneša maksas. Jūsu klientu dati nekad neatstāj jūsu datoru. Labi darbojas arī uz veciem klēpjdatoriem.</span></p>
+          <h3>Private and offline</h3>
+          <p>No account, no cloud, no monthly fee. Your customers' data never leaves your computer. It runs well on old laptops too.</p>
         </div>
       </div>
     </div>
@@ -143,25 +150,25 @@
   <section id="screens" class="alt-bg">
     <div class="wrap">
       <div class="section-head">
-        <h2><span lang="en">A look inside</span><span lang="lv">Ieskats programmā</span></h2>
-        <p><span lang="en">Light and dark, following your Windows setting. Screenshots show made-up sample data.</span><span lang="lv">Gaišā un tumšā tēma atbilstoši Windows iestatījumam. Ekrānuzņēmumos redzami izdomāti paraugdati.</span></p>
+        <h2>A look inside</h2>
+        <p>Light and dark, following your Windows setting. Screenshots show made-up sample data.</p>
       </div>
       <div class="gallery">
         <figure>
-          <img lang="en" src="img/calendar-en.webp" width="1440" height="900" loading="lazy" alt="Week calendar with bookings per day, coloured by status">
-          <img lang="lv" src="img/calendar-lv.webp" width="1440" height="900" loading="lazy" alt="Nedēļas kalendārs ar pierakstiem pa dienām, iekrāsotiem pēc statusa">
-          <figcaption><b><span lang="en">Calendar.</span><span lang="lv">Kalendārs.</span></b> <span lang="en">The whole week at a glance. Drag to reschedule, drag the bottom edge to change the length.</span><span lang="lv">Visa nedēļa vienā skatā. Pārvelciet, lai pārceltu; velciet apakšējo malu, lai mainītu ilgumu.</span></figcaption>
+          <img src="/img/calendar-en.webp" width="1440" height="900" loading="lazy" alt="Week calendar with bookings per day, coloured by status">
+          
+          <figcaption><b>Calendar.</b> The whole week at a glance. Drag to reschedule, drag the bottom edge to change the length.</figcaption>
         </figure>
         <div class="gallery two">
           <figure>
-            <img lang="en" src="img/jobcard-en.webp" width="1440" height="900" loading="lazy" alt="Job card with labour and part lines, VAT and total">
-            <img lang="lv" src="img/jobcard-lv.webp" width="1440" height="900" loading="lazy" alt="Darba karte ar darba un detaļu rindām, PVN un kopsummu">
-            <figcaption><b><span lang="en">Job card.</span><span lang="lv">Darba karte.</span></b> <span lang="en">Labour, parts from storage, VAT, then print.</span><span lang="lv">Darbs, detaļas no noliktavas, PVN, un drukāt.</span></figcaption>
+            <img src="/img/jobcard-en.webp" width="1440" height="900" loading="lazy" alt="Job card with labour and part lines, VAT and total">
+            
+            <figcaption><b>Job card.</b> Labour, parts from storage, VAT, then print.</figcaption>
           </figure>
           <figure>
-            <img lang="en" src="img/stats-en.webp" width="1440" height="900" loading="lazy" alt="Statistics by part make with average kilometres until replaced">
-            <img lang="lv" src="img/stats-lv.webp" width="1440" height="900" loading="lazy" alt="Statistika pēc detaļu ražotāja ar vidējo nobraukumu līdz maiņai">
-            <figcaption><b><span lang="en">Statistics.</span><span lang="lv">Statistika.</span></b> <span lang="en">Turnover, and how long each part make really lasts.</span><span lang="lv">Apgrozījums un tas, cik ilgi katra ražotāja detaļas patiešām kalpo.</span></figcaption>
+            <img src="/img/stats-en.webp" width="1440" height="900" loading="lazy" alt="Statistics by part make with average kilometres until replaced">
+            
+            <figcaption><b>Statistics.</b> Turnover, and how long each part make really lasts.</figcaption>
           </figure>
         </div>
       </div>
@@ -171,53 +178,53 @@
   <section id="download">
     <div class="wrap">
       <div class="section-head">
-        <h2><span lang="en">Download and install</span><span lang="lv">Lejupielāde un uzstādīšana</span></h2>
-        <p><span lang="en">For Windows 10 and 11 (64-bit). The installer takes about a minute.</span><span lang="lv">Windows 10 un 11 (64 bitu). Uzstādīšana aizņem apmēram minūti.</span></p>
+        <h2>Download and install</h2>
+        <p>For Windows 10 and 11 (64-bit). The installer takes about a minute.</p>
       </div>
       <div class="dl-row">
         <a class="btn primary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-          <span lang="en">Installer (recommended)</span><span lang="lv">Instalētājs (ieteicams)</span>
+          Installer (recommended)
         </a>
         <a class="btn secondary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear.exe">
-          <span lang="en">Portable exe, no install</span><span lang="lv">Pārnēsājamais exe bez uzstādīšanas</span>
+          Portable exe, no install
         </a>
       </div>
       <div class="cols">
         <ol class="steps">
           <li>
-            <h3><span lang="en">Download the installer</span><span lang="lv">Lejupielādējiet instalētāju</span></h3>
-            <p><span lang="en">Click the button above. The file is called <b>GearBear-Setup.exe</b>.</span><span lang="lv">Spiediet pogu augstāk. Faila nosaukums ir <b>GearBear-Setup.exe</b>.</span></p>
+            <h3>Download the installer</h3>
+            <p>Click the button above. The file is called <b>GearBear-Setup.exe</b>.</p>
           </li>
           <li>
-            <h3><span lang="en">Allow it to run</span><span lang="lv">Atļaujiet to palaist</span></h3>
-            <p><span lang="en">Windows may show a blue <b>“Windows protected your PC”</b> window. Click <b>More info</b>, then <b>Run anyway</b>.</span><span lang="lv">Windows var parādīt zilu logu <b>“Windows aizsargāja jūsu datoru”</b>. Spiediet <b>Vairāk informācijas</b> un tad <b>Tik un tā palaist</b>.</span></p>
-            <p class="note"><b><span lang="en">Why?</span><span lang="lv">Kāpēc?</span></b> <span lang="en">Windows shows this for programs from small publishers without a paid code-signing certificate. It is not a sign of a virus, and it only appears the first time.</span><span lang="lv">Windows to rāda programmām no maziem izstrādātājiem bez maksas koda paraksta sertifikāta. Tā nav vīrusa pazīme, un tas parādās tikai pirmo reizi.</span></p>
+            <h3>Allow it to run</h3>
+            <p>Windows may show a blue <b>“Windows protected your PC”</b> window. Click <b>More info</b>, then <b>Run anyway</b>.</p>
+            <p class="note"><b>Why?</b> Windows shows this for programs from small publishers without a paid code-signing certificate. It is not a sign of a virus, and it only appears the first time.</p>
           </li>
           <li>
-            <h3><span lang="en">Install</span><span lang="lv">Uzstādiet</span></h3>
-            <p><span lang="en">Click <b>Next</b> and <b>Install</b>. You get a shortcut on the desktop and in the Start menu. If the PC lacks Microsoft WebView2, the installer adds it.</span><span lang="lv">Spiediet <b>Tālāk</b> un <b>Uzstādīt</b>. Uz darbvirsmas un izvēlnē Sākt parādīsies saīsne. Ja datorā nav Microsoft WebView2, instalētājs to pievienos.</span></p>
+            <h3>Install</h3>
+            <p>Click <b>Next</b> and <b>Install</b>. You get a shortcut on the desktop and in the Start menu. If the PC lacks Microsoft WebView2, the installer adds it.</p>
           </li>
           <li>
-            <h3><span lang="en">Set it up</span><span lang="lv">Iestatiet</span></h3>
-            <p><span lang="en">Open <b>Settings</b>: enter your garage name and details for printouts, opening hours, VAT, mechanics and bays. Choose a backup folder on another drive. Then book your first appointment.</span><span lang="lv">Atveriet <b>Iestatījumus</b>: ievadiet servisa nosaukumu un rekvizītus izdrukām, darba laiku, PVN, mehāniķus un remonta vietas. Izvēlieties rezerves kopiju mapi uz cita diska. Tad pierakstiet pirmo klientu.</span></p>
+            <h3>Set it up</h3>
+            <p>Open <b>Settings</b>: enter your garage name and details for printouts, opening hours, VAT, mechanics and bays. Choose a backup folder on another drive. Then book your first appointment.</p>
           </li>
         </ol>
         <div>
           <div class="side">
-            <h3><span lang="en">Updates</span><span lang="lv">Atjauninājumi</span></h3>
-            <p><span lang="en">When a new version is out, a bar appears at the top of the app. Click <b>Download</b>, close GearBear and run the new installer. All your data stays.</span><span lang="lv">Kad iznāk jauna versija, programmas augšā parādās josla. Spiediet <b>Lejupielādēt</b>, aizveriet GearBear un palaidiet jauno instalētāju. Visi dati saglabājas.</span></p>
+            <h3>Updates</h3>
+            <p>When a new version is out, a bar appears at the top of the app. Click <b>Download</b>, close GearBear and run the new installer. All your data stays.</p>
           </div>
           <div class="side">
-            <h3><span lang="en">Already have customers in Excel?</span><span lang="lv">Klienti jau ir Excel tabulā?</span></h3>
-            <p><span lang="en">Save the sheet as CSV and import it in <b>Settings → Import</b>. You choose which column is which.</span><span lang="lv">Saglabājiet tabulu kā CSV un importējiet to sadaļā <b>Iestatījumi → Imports</b>. Jūs norādāt, kura kolonna ir kura.</span></p>
+            <h3>Already have customers in Excel?</h3>
+            <p>Save the sheet as CSV and import it in <b>Settings → Import</b>. You choose which column is which.</p>
           </div>
           <div class="side">
-            <h3><span lang="en">Requirements</span><span lang="lv">Prasības</span></h3>
+            <h3>Requirements</h3>
             <ul>
-              <li><span lang="en">Windows 10 or 11, 64-bit</span><span lang="lv">Windows 10 vai 11, 64 bitu</span></li>
-              <li><span lang="en">Any PC from the last ten years; uses well under 100 MB of memory</span><span lang="lv">Jebkurš pēdējo desmit gadu dators; aizņem krietni mazāk par 100 MB atmiņas</span></li>
-              <li><span lang="en">Internet only for installing and for update checks</span><span lang="lv">Internets vajadzīgs tikai uzstādīšanai un atjauninājumu pārbaudei</span></li>
+              <li>Windows 10 or 11, 64-bit</li>
+              <li>Any PC from the last ten years; uses well under 100 MB of memory</li>
+              <li>Internet only for installing and for update checks</li>
             </ul>
           </div>
         </div>
@@ -228,49 +235,49 @@
   <section id="donate" class="alt-bg donate">
     <div class="wrap">
       <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-      <h2><span lang="en">Support GearBear</span><span lang="lv">Atbalstiet GearBear</span></h2>
+      <h2>Support GearBear</h2>
       <p>
-        <span lang="en">GearBear is free, with no ads and no subscriptions. If it saves your garage time, a small donation helps keep it going: new features, fixes and updates.</span>
-        <span lang="lv">GearBear ir bez maksas, bez reklāmām un abonementiem. Ja tā ietaupa jūsu servisam laiku, neliels ziedojums palīdz to attīstīt: jaunas iespējas, labojumi un atjauninājumi.</span>
+        GearBear is free, with no ads and no subscriptions. If it saves your garage time, a small donation helps keep it going: new features, fixes and updates.
+        
       </p>
       <!-- The link comes from DONATE_URL in the script at the end. The
            app's Donate button opens this section. -->
       <a class="btn primary big" id="donate-link" href="" target="_blank" rel="noopener" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-        <span lang="en">Donate</span><span lang="lv">Ziedot</span>
+        Donate
       </a>
-      <p class="soon muted" id="donate-soon"><span lang="en">The donation page is coming soon. Thank you for wanting to help!</span><span lang="lv">Ziedojumu lapa drīzumā būs pieejama. Paldies, ka vēlaties atbalstīt!</span></p>
+      <p class="soon muted" id="donate-soon">The donation page is coming soon. Thank you for wanting to help!</p>
     </div>
   </section>
 
   <section id="faq">
     <div class="wrap faq">
       <div class="section-head">
-        <h2><span lang="en">Questions</span><span lang="lv">Jautājumi</span></h2>
+        <h2>Questions</h2>
       </div>
       <details>
-        <summary><span lang="en">Is it really free?</span><span lang="lv">Vai tiešām bez maksas?</span></summary>
-        <p><span lang="en">Yes. Every feature, for as long as you use it. There's no trial and no locked features. Donations are welcome but never required.</span><span lang="lv">Jā. Visas iespējas, cik ilgi vien lietojat. Nav izmēģinājuma perioda un nav slēgtu funkciju. Ziedojumi ir laipni gaidīti, bet nekad nav obligāti.</span></p>
+        <summary>Is it really free?</summary>
+        <p>Yes. Every feature, for as long as you use it. There's no trial and no locked features. Donations are welcome but never required.</p>
       </details>
       <details>
-        <summary><span lang="en">Where is my data, and does anything get sent anywhere?</span><span lang="lv">Kur glabājas mani dati, un vai kaut kas tiek kaut kur sūtīts?</span></summary>
-        <p><span lang="en">Everything is in one database file in <b>%APPDATA%\GearBear</b> on your PC, plus the backups. Settings → About shows the exact folder. The only internet use is a check for new versions: the app reads one small file from this website. No data about you, your garage or your customers is sent, and you can switch the check off in Settings.</span><span lang="lv">Viss glabājas vienā datubāzes failā mapē <b>%APPDATA%\GearBear</b> jūsu datorā, kopā ar rezerves kopijām. Precīzā mape redzama sadaļā Iestatījumi → Par programmu. Internets tiek izmantots tikai jaunu versiju pārbaudei: programma nolasa vienu mazu failu no šīs mājaslapas. Netiek sūtīti nekādi dati par jums, jūsu servisu vai klientiem, un pārbaudi var izslēgt iestatījumos.</span></p>
+        <summary>Where is my data, and does anything get sent anywhere?</summary>
+        <p>Everything is in one database file in <b>%APPDATA%\GearBear</b> on your PC, plus the backups. Settings → About shows the exact folder. The only internet use is a check for new versions: the app reads one small file from this website. No data about you, your garage or your customers is sent, and you can switch the check off in Settings.</p>
       </details>
       <details>
-        <summary><span lang="en">Can several PCs share the same data?</span><span lang="lv">Vai vairāki datori var lietot tos pašus datus?</span></summary>
-        <p><span lang="en">Not yet. GearBear runs on one PC, usually at the front desk. To move to a new PC, make a backup on the old one and restore it on the new one.</span><span lang="lv">Pagaidām ne. GearBear darbojas vienā datorā, parasti reģistratūrā. Lai pārietu uz jaunu datoru, izveidojiet rezerves kopiju vecajā un atjaunojiet to jaunajā.</span></p>
+        <summary>Can several PCs share the same data?</summary>
+        <p>Not yet. GearBear runs on one PC, usually at the front desk. To move to a new PC, make a backup on the old one and restore it on the new one.</p>
       </details>
       <details>
-        <summary><span lang="en">Does it work on Mac or Linux?</span><span lang="lv">Vai tā darbojas uz Mac vai Linux?</span></summary>
-        <p><span lang="en">No, only on Windows 10 and 11.</span><span lang="lv">Nē, tikai uz Windows 10 un 11.</span></p>
+        <summary>Does it work on Mac or Linux?</summary>
+        <p>No, only on Windows 10 and 11.</p>
       </details>
       <details>
-        <summary><span lang="en">What is the portable exe for?</span><span lang="lv">Kam paredzēts pārnēsājamais exe?</span></summary>
-        <p><span lang="en">It's the same app without an installer. Put it in a folder such as C:\GearBear and run it. To keep the data in that folder too, for example on a USB stick, create an empty file named <b>portable</b> next to the exe before the first start.</span><span lang="lv">Tā ir tā pati programma bez instalētāja. Ielieciet to mapē, piemēram, C:\GearBear, un palaidiet. Lai arī dati glabātos šajā mapē, piemēram, USB zibatmiņā, pirms pirmās palaišanas blakus exe failam izveidojiet tukšu failu ar nosaukumu <b>portable</b>.</span></p>
+        <summary>What is the portable exe for?</summary>
+        <p>It's the same app without an installer. Put it in a folder such as C:\GearBear and run it. To keep the data in that folder too, for example on a USB stick, create an empty file named <b>portable</b> next to the exe before the first start.</p>
       </details>
       <details>
-        <summary><span lang="en">How do I uninstall it?</span><span lang="lv">Kā to noņemt?</span></summary>
-        <p><span lang="en">Windows Settings → Apps → Installed apps → GearBear → Uninstall. Your database and backups are kept in case you change your mind. Delete the %APPDATA%\GearBear folder to remove them as well.</span><span lang="lv">Windows Iestatījumi → Programmas → Instalētās programmas → GearBear → Atinstalēt. Datubāze un rezerves kopijas tiek saglabātas, ja pārdomājat. Lai izdzēstu arī tās, izdzēsiet mapi %APPDATA%\GearBear.</span></p>
+        <summary>How do I uninstall it?</summary>
+        <p>Windows Settings → Apps → Installed apps → GearBear → Uninstall. Your database and backups are kept in case you change your mind. Delete the %APPDATA%\GearBear folder to remove them as well.</p>
       </details>
     </div>
   </section>
@@ -279,29 +286,26 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p><span lang="en">Free Windows app. Your garage's data stays on your own PC.</span><span lang="lv">Bezmaksas Windows programma. Jūsu servisa dati paliek jūsu datorā.</span></p>
+    <p>Free Windows app. Your garage's data stays on your own PC.</p>
     <p>
-      <a href="https://github.com/TeddyBear1998/garagemanager/releases"><span lang="en">All versions and release notes</span><span lang="lv">Visas versijas un izmaiņas</span></a>
-      · <a href="privacy"><span lang="en">Privacy</span><span lang="lv">Privātums</span></a>
-      · <a href="https://impatientbeaststudios.com/about"><span lang="en">About</span><span lang="lv">Par mani</span></a>
-      · <a href="https://impatientbeaststudios.com/contact"><span lang="en">Contact</span><span lang="lv">Kontakti</span></a>
-      · <a href="https://impatientbeaststudios.com"><span lang="en">Part of ImpatientBeastStudios</span><span lang="lv">Daļa no ImpatientBeastStudios</span></a>
-      · <a href="https://ko-fi.com/teddybear1998"><span lang="en">Support on Ko-fi</span><span lang="lv">Atbalstīt Ko-fi</span></a>
+      <a href="https://github.com/TeddyBear1998/garagemanager/releases">All versions and release notes</a>
+      · <a href="/privacy">Privacy</a>
+      · <a href="https://impatientbeaststudios.com/about">About</a>
+      · <a href="https://impatientbeaststudios.com/contact">Contact</a>
+      · <a href="https://impatientbeaststudios.com">Part of ImpatientBeastStudios</a>
+      · <a href="https://ko-fi.com/teddybear1998">Support on Ko-fi</a>
     </p>
   </div>
 </footer>
 
 <script>
   // Language toggle: remembered for the next visit.
-  var buttons = document.querySelectorAll('.lang button')
-  function setLang(lang) {
-    document.documentElement.lang = lang
-    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)) })
-    document.title = 'GearBear'
-    try { localStorage.setItem('lang', lang) } catch (e) {}
-  }
-  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang) }) })
-  setLang(document.documentElement.lang)
+  // Language switch: each page exists at /… (English) and /lv/… (Latvian); remember the choice.
+  document.querySelectorAll('.lang a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      try { localStorage.setItem('lang', a.dataset.lang) } catch (e) {}
+    })
+  })
 
   // Donate link; the "coming soon" line shows only while it is empty.
   var DONATE_URL = 'https://ko-fi.com/teddybear1998'
@@ -313,7 +317,7 @@
   }
 
   // Current version from latest.json, written by scripts/release.sh.
-  fetch('latest.json', { cache: 'no-cache' })
+  fetch('/latest.json', { cache: 'no-cache' })
     .then(function (r) { return r.ok ? r.json() : null })
     .then(function (f) {
       if (!f || !f.version) return
@@ -322,6 +326,6 @@
     })
     .catch(function () {})
 </script>
-<script src="ads.js"></script>
+<script src="/ads.js"></script>
 </body>
 </html>

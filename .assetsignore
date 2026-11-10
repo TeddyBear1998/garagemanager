@@ -7,3 +7,7 @@ wrangler.jsonc
 docs
 .wrangler
 .gitignore
+
+# Bilingual page sources and their build script (build.py writes index.html, privacy.html, lv/).
+src
+build.py

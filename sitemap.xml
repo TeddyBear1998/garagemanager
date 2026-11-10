@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://gearbear.impatientbeaststudios.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gearbear.impatientbeaststudios.com/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://gearbear.impatientbeaststudios.com/lv/"/>
+  </url>
+  <url>
+    <loc>https://gearbear.impatientbeaststudios.com/lv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gearbear.impatientbeaststudios.com/"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://gearbear.impatientbeaststudios.com/lv/"/>
+  </url>
+  <url>
+    <loc>https://gearbear.impatientbeaststudios.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gearbear.impatientbeaststudios.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://gearbear.impatientbeaststudios.com/lv/privacy"/>
+  </url>
+  <url>
+    <loc>https://gearbear.impatientbeaststudios.com/lv/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gearbear.impatientbeaststudios.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://gearbear.impatientbeaststudios.com/lv/privacy"/>
+  </url>
+</urlset>

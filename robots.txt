@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gearbear.impatientbeaststudios.com/sitemap.xml
