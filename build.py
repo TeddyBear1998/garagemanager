@@ -27,9 +27,11 @@ from pathlib import Path
 # ── Settings for this site ───────────────────────────────────────────────────
 SITE = 'https://gearbear.impatientbeaststudios.com'
 SRC = 'src'                 # bilingual sources
-OUT = '.'              # folder Cloudflare serves
+OUT = '.'              # where the built pages go
 STORAGE_KEY = 'lang'        # localStorage key that remembers the language
 SITEMAP_EXTRA = []          # pages that are not split (an app), listed as they are
+SITEMAP = None              # where sitemap.xml goes (None: OUT/sitemap.xml)
+HEADERS = None              # Cloudflare _headers with the CSP (None: OUT/_headers)
 # ─────────────────────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parent
@@ -64,7 +66,8 @@ def with_query(url, query):
 
 SPAN = re.compile(r'<span lang="(en|lv)">(.*?)</span>', re.S)
 IMG = re.compile(r'<img lang="(en|lv)" ([^>]*)>')
-HEAD_SCRIPT = re.compile(r'<script>\n[^<]*?navigator\.language[^<]*?</script>\n', re.S)
+# The old language script in <head>, or a marker comment where the new one goes.
+HEAD_SCRIPT = re.compile(r'<script>\n[^<]*?navigator\.language[^<]*?</script>\n|<!-- build\.py: language script -->\n')
 SWITCH = re.compile(r'<div class="lang" role="group" aria-label="Language / Valoda">.*?</div>', re.S)
 LEFTOVER = re.compile(r'<(?!html)[a-z0-9]+ [^>]*\slang="(?:en|lv)"|data-lv=|data-title-(?:en|lv)=')
 
@@ -217,18 +220,17 @@ def main():
     for p in sorted(built, key=lambda p: (p != '/', p)):
         alts = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE + localise(p, l)}"/>' for l in LANGS)
         rows += [f'  <url>\n    <loc>{SITE + localise(p, l)}</loc>{alts}\n  </url>' for l in LANGS]
-    (out_root / 'sitemap.xml').write_text(
+    (ROOT / SITEMAP if SITEMAP else out_root / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
         + '\n'.join(rows) + '\n</urlset>\n', encoding='utf-8')
     print(f'built {len(built)} pages × {len(LANGS)} languages + sitemap.xml')
 
-    # A Content-Security-Policy that lists inline-script hashes must allow this one.
-    headers = out_root / '_headers'
-    if headers.exists() and 'sha256-' in headers.read_text(encoding='utf-8'):
-        h = script_hash()
-        if h not in headers.read_text(encoding='utf-8'):
-            fail(f'add {h} to script-src in {OUT}/_headers, or the browser blocks the language script')
+    # A Content-Security-Policy without 'unsafe-inline' must list this script's hash.
+    headers = ROOT / HEADERS if HEADERS else out_root / '_headers'
+    m = re.search(r'script-src[^;\n]*', headers.read_text(encoding='utf-8')) if headers.exists() else None
+    if m and "'unsafe-inline'" not in m.group(0) and script_hash() not in m.group(0):
+        fail(f"add {script_hash()} to script-src in {headers.relative_to(ROOT)}, or the browser blocks the language script")
 
 
 if __name__ == '__main__':
