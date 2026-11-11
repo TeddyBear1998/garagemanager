@@ -133,6 +133,11 @@ figure { margin: 0; }
 figure img { border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow); }
 figcaption { margin-top: 12px; color: var(--text-muted); font-size: .95rem; }
 figcaption b { color: var(--text); }
+/* Short video (a vertical reel from ibs-reels), its text beside it on wider screens */
+.reel { display: grid; gap: 4px 32px; align-items: center; margin-bottom: 40px; }
+.reel video { display: block; width: 100%; max-width: 260px; height: auto; aspect-ratio: 9 / 16; margin: 0 auto; border-radius: 18px; background: #241e1a; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.reel figcaption { font-size: 1.02rem; max-width: 520px; }
+@media (min-width: 720px) { .reel { grid-template-columns: 260px 1fr; } .reel video { margin: 0; } }
 @media (min-width: 900px) { .gallery.two { grid-template-columns: 1fr 1fr; } }
 
 /* Install */
