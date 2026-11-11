@@ -11,3 +11,6 @@ docs
 # Bilingual page sources and their build script (build.py writes index.html, privacy.html, lv/).
 src
 build.py
+
+# The Worker script (serves /video/* in parts), not a file to publish.
+worker.js

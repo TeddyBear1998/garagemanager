@@ -3,5 +3,7 @@
 {
   "name": "gearbear",
   "compatibility_date": "2026-11-01",
-  "assets": { "directory": "." }
+  // worker.js only answers /video/* (Safari needs part-of-file answers to play a video).
+  "main": "worker.js",
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/video/*"] }
 }
