@@ -28,6 +28,10 @@
   s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(ADSENSE_CLIENT)
   document.head.appendChild(s)
 
+  // Non-personalised ads only, for everyone (no profile of the visitor; safer at any age).
+  // Also in AdSense: Blocking controls → Sensitive categories → block them all.
+  ;(window.adsbygoogle = window.adsbygoogle || []).requestNonPersonalizedAds = 1
+
   var lv = document.documentElement.lang === 'lv'
   spots.forEach(function (spot) {
     var slot = SLOTS[spot.dataset.ad]
