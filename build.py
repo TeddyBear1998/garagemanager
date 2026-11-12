@@ -42,6 +42,9 @@ HEADERS = None              # Cloudflare _headers with the CSP (None: OUT/_heade
 ROOT = Path(__file__).resolve().parent
 LANGS = ('en', 'lv')
 IBS = r'https://(?:[a-z]+\.)?impatientbeaststudios\.com'
+# IBS sites whose home page has a /lv/ version. On the others the home page is the app,
+# which switches language itself, so a Latvian link to it gets ?lang=lv instead.
+SPLIT_HOMES = r'https://(?:gearbear\.)?impatientbeaststudios\.com'
 ASSET = re.compile(r'\.(?!html$)[a-z0-9]{2,5}$', re.I)   # style.css, img/x.webp … but not a page
 
 
@@ -184,9 +187,15 @@ def build_page(src_file, src_root, out_root, pages):
                 target = target[len(SITE):]
                 target = target if target.startswith('/') else '/' + target
             elif target.startswith(('http:', 'https:')):
-                if lang == 'lv' and re.match(IBS, target) and 'lang=' not in target:
+                if lang == 'lv' and attr == 'href' and re.match(IBS, target) and 'lang=' not in target:
                     target = re.sub('^(' + IBS + ')(?=$|[?#])', r'\1/', target)
-                    target = with_query(target, 'lang=lv')   # the other IBS site opens in Latvian
+                    host, tpath, trest = re.match('^(' + IBS + ')([^?#]*)(.*)', target).groups()
+                    if ASSET.search(tpath) or tpath.startswith('/lv/'):
+                        pass
+                    elif tpath == '/' and not re.fullmatch(SPLIT_HOMES, host):
+                        target = with_query(target, 'lang=lv')   # an app home page: opens in Latvian
+                    else:
+                        target = host + localise(tpath, 'lv') + trest   # the page's own Latvian address
                 return f'{attr}="{target}"'
             path, rest = re.match(r'([^#?]*)(.*)', target).groups()
             if not path.startswith('/'):
