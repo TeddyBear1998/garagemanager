@@ -24,6 +24,8 @@
   })()
 </script>
 <meta name="theme-color" content="#241e1a">
+<link rel="preload" href="/fonts/ibs-pixel-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/workshop.css">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -31,7 +33,7 @@
 <header class="top">
   <div class="studio-bar"><div class="wrap"><a href="https://impatientbeaststudios.com/lv/"><span aria-hidden="true">&larr;</span> ImpatientBeastStudios</a></div></div>
   <div class="wrap top-row">
-    <a class="brand" href="/lv/" aria-label="GearBear"><img src="/img/icon-192.png" alt="" width="36" height="36"><span class="wordmark"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
+    <a class="brand" href="/lv/" aria-label="GearBear"><img src="/img/icon-192.png" alt="" width="40" height="40"><span class="name"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
     <nav class="links">
       <a href="/lv/#features">Iespējas</a>
       <a href="/lv/#screens">Ekrāni</a>
@@ -49,12 +51,12 @@
 <main>
   <section class="page-hero">
     <div class="wrap">
-      <h1>Privātums</h1>
+      <h1 class="px">Privātums</h1>
       <p>Ko GearBear un šī vietne dara ar jūsu datiem: ļoti maz.</p>
     </div>
   </section>
   <div class="wrap prose">
-    <p>Pēdējās izmaiņas: 12.11.2026</p>
+    <p class="updated">Pēdējās izmaiņas: <time datetime="2026-11-12">12.11.2026</time></p>
     <h2>Programma: jūsu servisa dati paliek jūsu datorā</h2>
     <p>GearBear nav kontu un nav mākoņa. Klienti, auto, pieraksti, darba kartes un rezerves kopijas tiek glabāti tikai datorā, kurā programma darbojas (vai tās mapē, ja izmantojat pārnēsājamo versiju). ImpatientBeastStudios tos nekad nesaņem.</p>
     <p>Vienīgā programmas piekļuve internetam ir atjauninājumu pārbaude: palaižot un ik pēc 12 stundām tā lejupielādē vienu mazu failu, <code>latest.json</code>, no šīs vietnes, lai uzzinātu, vai ir jaunāka versija. Tā nesūta neko par jums vai jūsu servisu. To var izslēgt sadaļā Iestatījumi → Vispārīgi → Atjauninājumi. Kad izvēlaties <b>Atjaunināt tagad</b>, jaunā versija tiek lejupielādēta no GitHub un pirms instalēšanas pārbaudīta pēc kontrolsummas.</p>

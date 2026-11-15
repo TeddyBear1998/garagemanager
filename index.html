@@ -37,6 +37,8 @@
   })()
 </script>
 <meta name="theme-color" content="#241e1a">
+<link rel="preload" href="/fonts/ibs-pixel-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/workshop.css">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -44,7 +46,7 @@
 <header class="top">
   <div class="studio-bar"><div class="wrap"><a href="https://impatientbeaststudios.com"><span aria-hidden="true">&larr;</span> ImpatientBeastStudios</a></div></div>
   <div class="wrap top-row">
-    <a class="brand" href="#top" aria-label="GearBear"><img src="/img/icon-192.png" alt="" width="36" height="36"><span class="wordmark"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
+    <a class="brand" href="#top" aria-label="GearBear"><img src="/img/icon-192.png" alt="" width="40" height="40"><span class="name"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
     <nav class="links">
       <a href="#features">Features</a>
       <a href="#screens">Screenshots</a>
@@ -71,23 +73,20 @@
         
       </p>
       <div class="cta">
-        <a class="btn primary big" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-          Download for Windows
-        </a>
-        <button type="button" class="btn secondary big" data-watch="gearbear-tour"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg>Watch the 18-second video</button>
-        <span class="alt">
-          <span class="version-line" hidden>Version <b class="version"></b> · </span>
-          <a href="#download">Install help</a>
-        </span>
+        <a class="btn primary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">Download for Windows</a>
+        <button type="button" class="btn watch-link" data-watch="gearbear-tour"><img class="pixel" src="/img/ui/play.svg" width="32" height="32" alt="">Watch the 18-second video</button>
       </div>
-      <div class="facts">
-        Free
-        Windows 10 and 11
-        Works offline
-        English and Latvian
-      </div>
-      <p class="formerly">Formerly called GarageManager. Already using it? Click Download in the app's “new version” bar and run the installer: it replaces GarageManager with GearBear and keeps all your data.</p>
+      <p class="alt">
+        <span class="version-line" hidden>Version <b class="version"></b></span>
+        <a href="#download">Install help</a>
+      </p>
+      <ul class="facts">
+        <li>Free</li>
+        <li>Windows 10 and 11</li>
+        <li>Works offline</li>
+        <li>English and Latvian</li>
+      </ul>
+      <p class="notice formerly"><b>Formerly called GarageManager.</b> Already using it? Click Download in the app's “new version” bar and run the installer: it replaces GarageManager with GearBear and keeps all your data.</p>
       <div class="shot">
         <img src="/img/dashboard-en.webp" width="1440" height="900" alt="GearBear dashboard: today's appointments with their status and cars due for service">
         
@@ -98,49 +97,42 @@
   <section id="features">
     <div class="wrap">
       <div class="section-head">
-        <h2>Everything the front desk needs, nothing it doesn't</h2>
+        <h2 class="px">Features</h2>
+        <p class="strap">Everything the front desk needs, nothing it doesn't.</p>
         <p>Made together with a working garage, for receptionists and mechanics who use it all day.</p>
       </div>
-      <div class="grid">
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></div>
-          <h3>Calendar</h3>
-          <p>Day and week views per bay and mechanic. Drag a booking to move it. Clear colours show what's booked, in progress, waiting for parts or ready.</p>
+      <div class="jobs">
+        <div class="job">
+          <h3 class="tab">Calendar</h3>
+          <div class="sheet"><p>Day and week views per bay and mechanic. Drag a booking to move it. Clear colours show what's booked, in progress, waiting for parts or ready.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <h3>Job cards</h3>
-          <p>Labour, parts and other costs with VAT worked out for you. Print a job card for the workshop and a summary for the customer.</p>
+        <div class="job">
+          <h3 class="tab">Job cards</h3>
+          <div class="sheet"><p>Labour, parts and other costs with VAT worked out for you. Print a job card for the workshop and a summary for the customer.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-          <h3>Instant search</h3>
-          <p>Type part of a plate, VIN, name or phone number and the car is there, even with 100 000 vehicles. <kbd>Ctrl</kbd>+<kbd>K</kbd> from anywhere.</p>
+        <div class="job">
+          <h3 class="tab">Instant search</h3>
+          <div class="sheet"><p>Type part of a plate, VIN, name or phone number and the car is there, even with 100 000 vehicles. <kbd>Ctrl</kbd>+<kbd>K</kbd> from anywhere.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
-          <h3>History and reminders</h3>
-          <p>Every job on every car, with mileage. See which cars are due for a service by date or kilometres, and mark who you've called.</p>
+        <div class="job">
+          <h3 class="tab">History and reminders</h3>
+          <div class="sheet"><p>Every job on every car, with mileage. See which cars are due for a service by date or kilometres, and mark who you've called.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/></svg></div>
-          <h3>Parts storage</h3>
-          <p>Keep track of the parts and fluids on your shelves. Take them straight onto a job card and the stock updates itself.</p>
+        <div class="job">
+          <h3 class="tab">Parts storage</h3>
+          <div class="sheet"><p>Keep track of the parts and fluids on your shelves. Take them straight onto a job card and the stock updates itself.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
-          <h3>Statistics</h3>
-          <p>Jobs, turnover, labour and parts for any period. See which part makes last longest, in kilometres, on real cars.</p>
+        <div class="job">
+          <h3 class="tab">Statistics</h3>
+          <div class="sheet"><p>Jobs, turnover, labour and parts for any period. See which part makes last longest, in kilometres, on real cars.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-          <h3>Daily backups</h3>
-          <p>Backs itself up every day, to another drive if you like. A power cut can't damage the data. Restoring takes two clicks.</p>
+        <div class="job">
+          <h3 class="tab">Daily backups</h3>
+          <div class="sheet"><p>Backs itself up every day, to another drive if you like. A power cut can't damage the data. Restoring takes two clicks.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3>Private and offline</h3>
-          <p>No account, no cloud, no monthly fee. Your customers' data never leaves your computer. It runs well on old laptops too.</p>
+        <div class="job">
+          <h3 class="tab">Private and offline</h3>
+          <div class="sheet"><p>No account, no cloud, no monthly fee. Your customers' data never leaves your computer. It runs well on old laptops too.</p></div>
         </div>
       </div>
     </div>
@@ -148,10 +140,10 @@
 
   <div class="wrap"><div class="ad" data-ad="page" hidden></div></div>
 
-  <section id="screens" class="alt-bg">
+  <section id="screens">
     <div class="wrap">
       <div class="section-head">
-        <h2>A look inside</h2>
+        <h2 class="px">A look inside</h2>
         <p>Light and dark, following your Windows setting. Screenshots show made-up sample data.</p>
       </div>
       <div class="gallery">
@@ -179,12 +171,11 @@
   <section id="download">
     <div class="wrap">
       <div class="section-head">
-        <h2>Download and install</h2>
+        <h2 class="px">Download and install</h2>
         <p>For Windows 10 and 11 (64-bit). The installer takes about a minute.</p>
       </div>
       <div class="dl-row">
         <a class="btn primary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
           Installer (recommended)
         </a>
         <a class="btn secondary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear.exe">
@@ -192,7 +183,7 @@
         </a>
       </div>
       <div class="cols">
-        <ol class="steps">
+        <ol class="steps log">
           <li>
             <h3>Download the installer</h3>
             <p>Click the button above. The file is called <b>GearBear-Setup.exe</b>.</p>
@@ -200,7 +191,7 @@
           <li>
             <h3>Allow it to run</h3>
             <p>Windows may show a blue <b>“Windows protected your PC”</b> window. Click <b>More info</b>, then <b>Run anyway</b>.</p>
-            <p class="note"><b>Why?</b> Windows shows this for programs from small publishers without a paid code-signing certificate. It is not a sign of a virus, and it only appears the first time.</p>
+            <p class="note notice warn"><b>Why?</b> Windows shows this for programs from small publishers without a paid code-signing certificate. It is not a sign of a virus, and it only appears the first time.</p>
           </li>
           <li>
             <h3>Install</h3>
@@ -211,7 +202,7 @@
             <p>Open <b>Settings</b>: enter your garage name and details for printouts, opening hours, VAT, mechanics and bays. Choose a backup folder on another drive. Then book your first appointment.</p>
           </li>
         </ol>
-        <div>
+        <div class="sides">
           <div class="side">
             <h3>Updates</h3>
             <p>When a new version is out, a bar appears at the top of the app. Click <b>Download</b>, close GearBear and run the new installer. All your data stays.</p>
@@ -233,29 +224,31 @@
     </div>
   </section>
 
-  <section id="donate" class="alt-bg donate">
+  <section id="donate">
     <div class="wrap">
-      <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-      <h2>Support GearBear</h2>
-      <p>
-        GearBear is free, with no ads and no subscriptions. If it saves your garage time, a small donation helps keep it going: new features, fixes and updates.
-        
-      </p>
-      <!-- The link comes from DONATE_URL in the script at the end. The
-           app's Donate button opens this section. -->
-      <a class="btn primary big" id="donate-link" href="" target="_blank" rel="noopener" hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-        Donate
-      </a>
-      <p class="soon muted" id="donate-soon">The donation page is coming soon. Thank you for wanting to help!</p>
+      <div class="support sheet">
+        <img class="pixel mug" src="/img/ui/mug.svg" width="64" height="64" alt="">
+        <div>
+          <h2 class="px">Support GearBear</h2>
+          <p>
+            GearBear is free, with no ads and no subscriptions. If it saves your garage time, a small donation helps keep it going: new features, fixes and updates.
+            
+          </p>
+          <!-- The link comes from DONATE_URL in the script at the end. The
+               app's Donate button opens this section. -->
+          <a class="btn primary" id="donate-link" href="" target="_blank" rel="noopener" hidden>Donate</a>
+          <p class="soon muted" id="donate-soon">The donation page is coming soon. Thank you for wanting to help!</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="faq">
-    <div class="wrap faq">
+    <div class="wrap">
       <div class="section-head">
-        <h2>Questions</h2>
+        <h2 class="px">Questions</h2>
       </div>
+      <div class="faq log">
       <details>
         <summary>Is it really free?</summary>
         <p>Yes. Every feature, for as long as you use it. There's no trial and no locked features. Donations are welcome but never required.</p>
@@ -280,6 +273,7 @@
         <summary>How do I uninstall it?</summary>
         <p>Windows Settings → Apps → Installed apps → GearBear → Uninstall. Your database and backups are kept in case you change your mind. Delete the %APPDATA%\GearBear folder to remove them as well.</p>
       </details>
+      </div>
     </div>
   </section>
   <div class="wrap"><div class="ad" data-ad="page" hidden></div></div>

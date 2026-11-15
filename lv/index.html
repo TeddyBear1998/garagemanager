@@ -37,6 +37,8 @@
   })()
 </script>
 <meta name="theme-color" content="#241e1a">
+<link rel="preload" href="/fonts/ibs-pixel-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/workshop.css">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -44,7 +46,7 @@
 <header class="top">
   <div class="studio-bar"><div class="wrap"><a href="https://impatientbeaststudios.com/lv/"><span aria-hidden="true">&larr;</span> ImpatientBeastStudios</a></div></div>
   <div class="wrap top-row">
-    <a class="brand" href="#top" aria-label="GearBear"><img src="/img/icon-192.png" alt="" width="36" height="36"><span class="wordmark"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
+    <a class="brand" href="#top" aria-label="GearBear"><img src="/img/icon-192.png" alt="" width="40" height="40"><span class="name"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
     <nav class="links">
       <a href="#features">Iespējas</a>
       <a href="#screens">Ekrāni</a>
@@ -71,23 +73,20 @@
         Bezmaksas Windows programma autoservisiem. Pierakstiet darbus kalendārā, aizpildiet darba kartes, izdrukājiet tās klientam un atrodiet jebkuras automašīnas vēsturi sekundes laikā. Darbojas bez interneta, un dati paliek jūsu datorā.
       </p>
       <div class="cta">
-        <a class="btn primary big" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-          Lejupielādēt Windows
-        </a>
-        <button type="button" class="btn secondary big" data-watch="gearbear-tour"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg>Noskatieties 18 sekunžu video</button>
-        <span class="alt">
-          <span class="version-line" hidden>Versija <b class="version"></b> · </span>
-          <a href="#download">Kā uzstādīt</a>
-        </span>
+        <a class="btn primary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">Lejupielādēt Windows</a>
+        <button type="button" class="btn watch-link" data-watch="gearbear-tour"><img class="pixel" src="/img/ui/play.svg" width="32" height="32" alt="">Noskatieties 18 sekunžu video</button>
       </div>
-      <div class="facts">
-        Bez maksas
-        Windows 10 un 11
-        Darbojas bez interneta
-        Latviešu un angļu valodā
-      </div>
-      <p class="formerly">Agrāk saucās GarageManager. Jau lietojat? Spiediet Lejupielādēt programmas joslā “jauna versija” un palaidiet instalētāju: tas aizstās GarageManager ar GearBear un saglabās visus datus.</p>
+      <p class="alt">
+        <span class="version-line" hidden>Versija <b class="version"></b></span>
+        <a href="#download">Kā uzstādīt</a>
+      </p>
+      <ul class="facts">
+        <li>Bez maksas</li>
+        <li>Windows 10 un 11</li>
+        <li>Darbojas bez interneta</li>
+        <li>Latviešu un angļu valodā</li>
+      </ul>
+      <p class="notice formerly"><b>Agrāk saucās GarageManager.</b> Jau lietojat? Spiediet Lejupielādēt programmas joslā “jauna versija” un palaidiet instalētāju: tas aizstās GarageManager ar GearBear un saglabās visus datus.</p>
       <div class="shot">
         
         <img src="/img/dashboard-lv.webp" width="1440" height="900" alt="GearBear sākuma ekrāns: šodienas pieraksti ar statusiem un automašīnas, kurām drīz jāveic serviss">
@@ -98,49 +97,42 @@
   <section id="features">
     <div class="wrap">
       <div class="section-head">
-        <h2>Viss, kas vajadzīgs reģistratūrai, un nekā lieka</h2>
+        <h2 class="px">Iespējas</h2>
+        <p class="strap">Viss, kas vajadzīgs reģistratūrai, un nekā lieka.</p>
         <p>Veidota kopā ar strādājošu autoservisu, reģistratoriem un mehāniķiem, kas to lieto visu dienu.</p>
       </div>
-      <div class="grid">
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></div>
-          <h3>Kalendārs</h3>
-          <p>Dienas un nedēļas skats pa remonta vietām un mehāniķiem. Pārvelciet pierakstu, lai to pārceltu. Skaidras krāsas rāda, kas ir pierakstīts, procesā, gaida detaļas vai ir gatavs.</p>
+      <div class="jobs">
+        <div class="job">
+          <h3 class="tab">Kalendārs</h3>
+          <div class="sheet"><p>Dienas un nedēļas skats pa remonta vietām un mehāniķiem. Pārvelciet pierakstu, lai to pārceltu. Skaidras krāsas rāda, kas ir pierakstīts, procesā, gaida detaļas vai ir gatavs.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <h3>Darba kartes</h3>
-          <p>Darbs, detaļas un citas izmaksas ar automātiski aprēķinātu PVN. Izdrukājiet darba karti darbnīcai un kopsavilkumu klientam.</p>
+        <div class="job">
+          <h3 class="tab">Darba kartes</h3>
+          <div class="sheet"><p>Darbs, detaļas un citas izmaksas ar automātiski aprēķinātu PVN. Izdrukājiet darba karti darbnīcai un kopsavilkumu klientam.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
-          <h3>Tūlītēja meklēšana</h3>
-          <p>Ierakstiet daļu no numura, VIN, vārda vai tālruņa, un automašīna ir atrasta, pat ja to ir 100 000. <kbd>Ctrl</kbd>+<kbd>K</kbd> no jebkuras vietas.</p>
+        <div class="job">
+          <h3 class="tab">Tūlītēja meklēšana</h3>
+          <div class="sheet"><p>Ierakstiet daļu no numura, VIN, vārda vai tālruņa, un automašīna ir atrasta, pat ja to ir 100 000. <kbd>Ctrl</kbd>+<kbd>K</kbd> no jebkuras vietas.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
-          <h3>Vēsture un atgādinājumi</h3>
-          <p>Katrs darbs katrai automašīnai, ar nobraukumu. Redziet, kurām automašīnām pienācis servisa laiks pēc datuma vai kilometriem, un atzīmējiet, kam jau zvanījāt.</p>
+        <div class="job">
+          <h3 class="tab">Vēsture un atgādinājumi</h3>
+          <div class="sheet"><p>Katrs darbs katrai automašīnai, ar nobraukumu. Redziet, kurām automašīnām pienācis servisa laiks pēc datuma vai kilometriem, un atzīmējiet, kam jau zvanījāt.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/></svg></div>
-          <h3>Detaļu noliktava</h3>
-          <p>Uzskaitiet detaļas un šķidrumus plauktos. Ņemiet tās uzreiz darba kartē, un atlikums mainās pats.</p>
+        <div class="job">
+          <h3 class="tab">Detaļu noliktava</h3>
+          <div class="sheet"><p>Uzskaitiet detaļas un šķidrumus plauktos. Ņemiet tās uzreiz darba kartē, un atlikums mainās pats.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
-          <h3>Statistika</h3>
-          <p>Darbi, apgrozījums, darbs un detaļas jebkuram periodam. Redziet, kuru ražotāju detaļas kalpo visilgāk, kilometros, uz īstām automašīnām.</p>
+        <div class="job">
+          <h3 class="tab">Statistika</h3>
+          <div class="sheet"><p>Darbi, apgrozījums, darbs un detaļas jebkuram periodam. Redziet, kuru ražotāju detaļas kalpo visilgāk, kilometros, uz īstām automašīnām.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg></div>
-          <h3>Ikdienas rezerves kopijas</h3>
-          <p>Katru dienu pati izveido rezerves kopiju, ja vēlaties, uz citu disku. Elektrības pārtraukums datus nesabojā. Atjaunošana prasa divus klikšķus.</p>
+        <div class="job">
+          <h3 class="tab">Ikdienas rezerves kopijas</h3>
+          <div class="sheet"><p>Katru dienu pati izveido rezerves kopiju, ja vēlaties, uz citu disku. Elektrības pārtraukums datus nesabojā. Atjaunošana prasa divus klikšķus.</p></div>
         </div>
-        <div class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h3>Privāti un bez interneta</h3>
-          <p>Bez konta, bez mākoņa, bez ikmēneša maksas. Jūsu klientu dati nekad neatstāj jūsu datoru. Labi darbojas arī uz veciem klēpjdatoriem.</p>
+        <div class="job">
+          <h3 class="tab">Privāti un bez interneta</h3>
+          <div class="sheet"><p>Bez konta, bez mākoņa, bez ikmēneša maksas. Jūsu klientu dati nekad neatstāj jūsu datoru. Labi darbojas arī uz veciem klēpjdatoriem.</p></div>
         </div>
       </div>
     </div>
@@ -148,10 +140,10 @@
 
   <div class="wrap"><div class="ad" data-ad="page" hidden></div></div>
 
-  <section id="screens" class="alt-bg">
+  <section id="screens">
     <div class="wrap">
       <div class="section-head">
-        <h2>Ieskats programmā</h2>
+        <h2 class="px">Ieskats programmā</h2>
         <p>Gaišā un tumšā tēma atbilstoši Windows iestatījumam. Ekrānuzņēmumos redzami izdomāti paraugdati.</p>
       </div>
       <div class="gallery">
@@ -179,12 +171,11 @@
   <section id="download">
     <div class="wrap">
       <div class="section-head">
-        <h2>Lejupielāde un uzstādīšana</h2>
+        <h2 class="px">Lejupielāde un uzstādīšana</h2>
         <p>Windows 10 un 11 (64 bitu). Uzstādīšana aizņem apmēram minūti.</p>
       </div>
       <div class="dl-row">
         <a class="btn primary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear-Setup.exe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
           Instalētājs (ieteicams)
         </a>
         <a class="btn secondary" href="https://github.com/TeddyBear1998/garagemanager/releases/latest/download/GearBear.exe">
@@ -192,7 +183,7 @@
         </a>
       </div>
       <div class="cols">
-        <ol class="steps">
+        <ol class="steps log">
           <li>
             <h3>Lejupielādējiet instalētāju</h3>
             <p>Spiediet pogu augstāk. Faila nosaukums ir <b>GearBear-Setup.exe</b>.</p>
@@ -200,7 +191,7 @@
           <li>
             <h3>Atļaujiet to palaist</h3>
             <p>Windows var parādīt zilu logu <b>“Windows aizsargāja jūsu datoru”</b>. Spiediet <b>Vairāk informācijas</b> un tad <b>Tik un tā palaist</b>.</p>
-            <p class="note"><b>Kāpēc?</b> Windows to rāda programmām no maziem izstrādātājiem bez maksas koda paraksta sertifikāta. Tā nav vīrusa pazīme, un tas parādās tikai pirmo reizi.</p>
+            <p class="note notice warn"><b>Kāpēc?</b> Windows to rāda programmām no maziem izstrādātājiem bez maksas koda paraksta sertifikāta. Tā nav vīrusa pazīme, un tas parādās tikai pirmo reizi.</p>
           </li>
           <li>
             <h3>Uzstādiet</h3>
@@ -211,7 +202,7 @@
             <p>Atveriet <b>Iestatījumus</b>: ievadiet servisa nosaukumu un rekvizītus izdrukām, darba laiku, PVN, mehāniķus un remonta vietas. Izvēlieties rezerves kopiju mapi uz cita diska. Tad pierakstiet pirmo klientu.</p>
           </li>
         </ol>
-        <div>
+        <div class="sides">
           <div class="side">
             <h3>Atjauninājumi</h3>
             <p>Kad iznāk jauna versija, programmas augšā parādās josla. Spiediet <b>Lejupielādēt</b>, aizveriet GearBear un palaidiet jauno instalētāju. Visi dati saglabājas.</p>
@@ -233,29 +224,31 @@
     </div>
   </section>
 
-  <section id="donate" class="alt-bg donate">
+  <section id="donate">
     <div class="wrap">
-      <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-      <h2>Atbalstiet GearBear</h2>
-      <p>
-        
-        GearBear ir bez maksas, bez reklāmām un abonementiem. Ja tā ietaupa jūsu servisam laiku, neliels ziedojums palīdz to attīstīt: jaunas iespējas, labojumi un atjauninājumi.
-      </p>
-      <!-- The link comes from DONATE_URL in the script at the end. The
-           app's Donate button opens this section. -->
-      <a class="btn primary big" id="donate-link" href="" target="_blank" rel="noopener" hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-        Ziedot
-      </a>
-      <p class="soon muted" id="donate-soon">Ziedojumu lapa drīzumā būs pieejama. Paldies, ka vēlaties atbalstīt!</p>
+      <div class="support sheet">
+        <img class="pixel mug" src="/img/ui/mug.svg" width="64" height="64" alt="">
+        <div>
+          <h2 class="px">Atbalstiet GearBear</h2>
+          <p>
+            
+            GearBear ir bez maksas, bez reklāmām un abonementiem. Ja tā ietaupa jūsu servisam laiku, neliels ziedojums palīdz to attīstīt: jaunas iespējas, labojumi un atjauninājumi.
+          </p>
+          <!-- The link comes from DONATE_URL in the script at the end. The
+               app's Donate button opens this section. -->
+          <a class="btn primary" id="donate-link" href="" target="_blank" rel="noopener" hidden>Ziedot</a>
+          <p class="soon muted" id="donate-soon">Ziedojumu lapa drīzumā būs pieejama. Paldies, ka vēlaties atbalstīt!</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="faq">
-    <div class="wrap faq">
+    <div class="wrap">
       <div class="section-head">
-        <h2>Jautājumi</h2>
+        <h2 class="px">Jautājumi</h2>
       </div>
+      <div class="faq log">
       <details>
         <summary>Vai tiešām bez maksas?</summary>
         <p>Jā. Visas iespējas, cik ilgi vien lietojat. Nav izmēģinājuma perioda un nav slēgtu funkciju. Ziedojumi ir laipni gaidīti, bet nekad nav obligāti.</p>
@@ -280,6 +273,7 @@
         <summary>Kā to noņemt?</summary>
         <p>Windows Iestatījumi → Programmas → Instalētās programmas → GearBear → Atinstalēt. Datubāze un rezerves kopijas tiek saglabātas, ja pārdomājat. Lai izdzēstu arī tās, izdzēsiet mapi %APPDATA%\GearBear.</p>
       </details>
+      </div>
     </div>
   </section>
   <div class="wrap"><div class="ad" data-ad="page" hidden></div></div>

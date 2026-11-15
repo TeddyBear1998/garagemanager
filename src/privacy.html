@@ -20,6 +20,8 @@
   })()
 </script>
 <meta name="theme-color" content="#241e1a">
+<link rel="preload" href="/fonts/ibs-pixel-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/workshop.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,7 +29,7 @@
 <header class="top">
   <div class="studio-bar"><div class="wrap"><a href="https://impatientbeaststudios.com"><span aria-hidden="true">&larr;</span> ImpatientBeastStudios</a></div></div>
   <div class="wrap top-row">
-    <a class="brand" href="./" aria-label="GearBear"><img src="img/icon-192.png" alt="" width="36" height="36"><span class="wordmark"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
+    <a class="brand" href="./" aria-label="GearBear"><img src="img/icon-192.png" alt="" width="40" height="40"><span class="name"><span class="w-a">Gear</span><span class="w-b">Bear</span></span></a>
     <nav class="links">
       <a href="./#features"><span lang="en">Features</span><span lang="lv">Iespējas</span></a>
       <a href="./#screens"><span lang="en">Screenshots</span><span lang="lv">Ekrāni</span></a>
@@ -45,12 +47,12 @@
 <main>
   <section class="page-hero">
     <div class="wrap">
-      <h1><span lang="en">Privacy</span><span lang="lv">Privātums</span></h1>
+      <h1 class="px"><span lang="en">Privacy</span><span lang="lv">Privātums</span></h1>
       <p><span lang="en">What GearBear and this website do with your data: very little.</span><span lang="lv">Ko GearBear un šī vietne dara ar jūsu datiem: ļoti maz.</span></p>
     </div>
   </section>
   <div class="wrap prose">
-    <p><span lang="en">Last updated: 12.11.2026</span><span lang="lv">Pēdējās izmaiņas: 12.11.2026</span></p>
+    <p class="updated"><span lang="en">Last updated: <time datetime="2026-11-12">12.11.2026</time></span><span lang="lv">Pēdējās izmaiņas: <time datetime="2026-11-12">12.11.2026</time></span></p>
     <h2><span lang="en">The app: your garage's data stays on your PC</span><span lang="lv">Programma: jūsu servisa dati paliek jūsu datorā</span></h2>
     <p><span lang="en">GearBear has no accounts and no cloud. Customers, vehicles, appointments, job cards and backups are stored only on the computer where it runs (or in its own folder, when you use the portable version). ImpatientBeastStudios never receives them.</span><span lang="lv">GearBear nav kontu un nav mākoņa. Klienti, auto, pieraksti, darba kartes un rezerves kopijas tiek glabāti tikai datorā, kurā programma darbojas (vai tās mapē, ja izmantojat pārnēsājamo versiju). ImpatientBeastStudios tos nekad nesaņem.</span></p>
     <p><span lang="en">The app's only network access is the update check: at start and every 12 hours it downloads one small file, <code>latest.json</code>, from this website to see whether a newer version exists. It sends nothing about you or your garage. You can switch it off in Settings → General → Updates. When you choose <b>Update now</b>, the new version is downloaded from GitHub and checked against its checksum before it is installed.</span><span lang="lv">Vienīgā programmas piekļuve internetam ir atjauninājumu pārbaude: palaižot un ik pēc 12 stundām tā lejupielādē vienu mazu failu, <code>latest.json</code>, no šīs vietnes, lai uzzinātu, vai ir jaunāka versija. Tā nesūta neko par jums vai jūsu servisu. To var izslēgt sadaļā Iestatījumi → Vispārīgi → Atjauninājumi. Kad izvēlaties <b>Atjaunināt tagad</b>, jaunā versija tiek lejupielādēta no GitHub un pirms instalēšanas pārbaudīta pēc kontrolsummas.</span></p>
